@@ -15,7 +15,7 @@ npm (Node Package Manager)
 
 Installation
 Clone this repository to your local machine using the following command:
-git clone https:
+git clone https:https://github.com/MohamedimranM/Auxwall-Task.git
 
 Install Dependencies
 Install all required Node.js packages listed in package.json:
