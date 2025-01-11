@@ -1,0 +1,72 @@
+
+    /* General body style */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+
+
+.form-container {
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+
+.form-container h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.form-container label {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+
+.form-container .input-field {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+
+
+.form-container .submit-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+
+.form-container .submit-btn:hover {
+  background-color: #45a049;
+}
+
+
+.error-message {
+  color: red;
+  font-size: 0.9rem;
+}
+

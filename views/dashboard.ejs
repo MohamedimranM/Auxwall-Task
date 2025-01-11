@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/css/dashboard.css">
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="logo">Dashboard</div>
+      <div class="links">
+        <a href="/logout">Logout</a>
+      </div>
+    </div>
+    <div class="main-content">
+      
+      <% if (user) { %>
+        <h1>Welcome, <%= user.username %>!</h1>
+      <% } %>
+      <div class="form-container">
+        <form action="/generateqr" method="POST">
+          <button type="submit">Generate QR Code</button>
+        </form>
+        <button  onclick="window.location.href='/dashboards'">
+          Voucher List
+        </button>
+        <form action="/settings" method="GET">
+          <button type="submit">Settings</button>
+        </form>
+      </div>
+      <h2>Existing Vouchers</h2>
+  <table border="">
+      <thead>
+          <tr>
+            <th>SN</th>
+              <th>Voucher Number</th>
+              <th>Generated Date</th>
+              <th>Expiry Date</th>
+              <th>Export</th>
+          </tr>
+      </thead>
+      <tbody>
+        <% if (data && data.length > 0) { %>
+          <% data.forEach(voucher => { %>
+            <tr>
+              <td><%= voucher.id %></td>
+              <td><%= voucher.code %></td>
+              <td><%= new Date(voucher.generated_date).toLocaleDateString() %></td>
+              <td><%= new Date(voucher.expiry_date).toLocaleDateString() %></td>
+              <td>
+                <button class="generate-pdf-btn" onclick="window.location.href='/generatepdf/<%= voucher.id %>'">
+                  Export as PDF
+                </button>
+              </td>
+            </tr>
+          <% }); %>
+        <% } else { %>
+          <tr>
+            <td colspan="4">No vouchers available</td>
+          </tr>
+        <% } %>
+      </tbody>
+  </table>
+    </div>
+  </body>
+</html>
