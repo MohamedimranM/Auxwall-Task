@@ -1,6 +1,6 @@
 <h1>Login Credentials </h1>
-<h3>admin</h3>
-<h3>admin123</h3>
+<h3> username : admin</h3>
+<h3>password : admin123</h3>
 **Features
 Dynamic rendering with EJS templates.
 Secure session management with express-session.
