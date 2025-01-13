@@ -1,10 +1,14 @@
 const sql = require('mssql');
+const dotenv = require('dotenv')
+dotenv.config()
 
 const dbConfig = {
-    server: 'DESKTOP-NVEG3MD\\SQLEXPRESS',
-    database: 'discount',
-    user: 'sa',
-    password: '123456',
+    server: process.env.SERVER,
+    database: process.env.DATABASE,
+    user: process.env.USER,
+    password: process.env.PASSWORD,
+    port: 19702,
+   
     options: {
         encrypt: true,
         trustServerCertificate: true,

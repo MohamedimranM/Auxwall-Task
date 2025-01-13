@@ -1,12 +1,16 @@
 const express = require('express') 
 const session = require('express-session'); 
+const dotenv= require('dotenv')
 const loginRoutes = require('./routes/login');
 const dashboardRoutes = require('./routes/dashboard')
 const settingRoutes = require('./routes/settings')
 const path = require('path')
 
-const PORT = 3000
 const app = express()
+// const PORT = process.env.PORT
+dotenv.config()
+const PORT= process.env.PORT
+app.use(express.json())
 
 // Set the view engine to EJS
 app.set('view engine', 'ejs');  // Tells Express to use EJS templates for rendering HTML views
