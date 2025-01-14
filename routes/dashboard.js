@@ -15,10 +15,16 @@ router.get("/dashboard", (req, res) => {
 
 // routes generate qr
 router.post("/generateqr", async (req, res) => {
+  
+  const pool = await db;
+  const settingsResult = await pool.request().query("SELECT * FROM setting");
+  const settings = settingsResult.recordset[0];
+  // console.log(settings.maxExpiryTime)
+
   const code = Math.random().toString().slice(2, 12);
   const generatedDate = new Date();
   const expiryDate = new Date(
-    generatedDate.getTime() + 30 * 24 * 60 * 60 * 1000
+    generatedDate.getTime() + `${settings.maxExpiryTime}` * 24 * 60 * 60 * 1000
   ); 
   // Generate QR code
   try {

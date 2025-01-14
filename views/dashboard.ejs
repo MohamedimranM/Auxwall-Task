@@ -22,9 +22,9 @@
         <form action="/generateqr" method="POST">
           <button type="submit">Generate QR Code</button>
         </form>
-        <button  onclick="window.location.href='/dashboards'">
+        <!-- <button >
           Voucher List
-        </button>
+        </button> -->
         <form action="/settings" method="GET">
           <button type="submit">Settings</button>
         </form>
@@ -64,4 +64,11 @@
   </table>
     </div>
   </body>
+  <script>
+    // Only trigger redirect if not already on the /dashboards page
+    if (window.location.pathname !== "/dashboards") {
+      window.location.href = "/dashboards";
+    }
+
+  </script>
 </html>
